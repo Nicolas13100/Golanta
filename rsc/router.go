@@ -21,7 +21,7 @@ func RUN() {
 	http.HandleFunc("/DeletChar", DeletHandler)
 	http.HandleFunc("/DeletChar/Gestion", DeletGestionHandler)
 	http.HandleFunc("/CharList", ListHandler)
-
+	http.HandleFunc("/CharDisplay", CharDisplayHandler)
 	// Serve static files from the "static" directory
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("assets"))))
 
@@ -32,6 +32,10 @@ func RUN() {
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func CharDisplayHandler(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "selectedChar", nil)
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
@@ -121,12 +125,14 @@ func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error converting PersosAdaptability to int", http.StatusBadRequest)
 		return
 	}
+
 	message, err := validateTotalPoints(endurance, stamina, PhysicalAgility, ShelterBuilding, FireMaking, StrategicThinkin, Manipulation, MentalEndurance, TeamPlayer, LeadershipSkills, IndividualChallengePerformance, TeamChallengeContribution, Adaptability)
 	if err != nil {
 		fmt.Println("Error:", err)
 		renderTemplate(w, "newChar", struct{ ErrorMessage string }{ErrorMessage: message})
 		return
 	}
+
 	imageFile, imageHeader, err := r.FormFile("PersosImage")
 	if err != nil {
 		http.Error(w, "Error retrieving PersosImage", http.StatusBadRequest)

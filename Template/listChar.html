@@ -1,22 +1,25 @@
 {{define "listChar"}}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/char.css" />
-    <title>Character Presentation</title>
-  </head>
 
-  <body>
-    {{range .}}
-    <div>
-      <h2>{{.PersosName}}</h2>
-      <img src="{{.PersosImage}}" alt="{{.PersosName}} Image" />
-      <p>{{.PersosDescription}}</p>
-      <!-- Add more fields as needed -->
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/char.css" />
+  <title>Character Presentation</title>
+</head>
+
+<body>
+  {{range .}}
+  <div>
+    <a href="/CharDisplay?fullname={{.PersosFullName}}"></a>
+    <h2>{{.PersosName}}</h2>
+    <img src="{{.PersosImage}}" alt="{{.PersosName}} Image" />
+    <p>{{.PersosDescription}}</p>
+    </a>
+  </div>
   {{end}}
-  </body>
+</body>
+
 </html>
 {{end}}

@@ -7,7 +7,161 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <body>
+        {{ if .ErrorMessage }}
+          <div class="error-message">{{ .ErrorMessage }}</div>
+      {{ end }}
+        <div class="content-all">
+          <div class="perso-global">
+            <form action="/CreatChar/Gestion" method="post" enctype="multipart/form-data">
+              <div class="center-F">
+                <h1>Cree un personnage </h1>
+              </div>
+              <div>
+                <label for="PersosName">Nom du personnage :</label>
+                <input type="text" id="PersosName" name="PersosName" placeholder="Nicolas" required />
+              </div>
+              <div>
+                <label for="PersosImage">Image du personnage (must be under 10MB):</label>
+                <input type="file" id="PersosImage" name="PersosImage" required />
+              </div>
+              <div>
+                <label for="PersosFullName">Nom complet, si aucun metre le nom :</label>
+                <input type="text" id="PersosFullName" name="PersosFullName" placeholder="Moyon Nicolas" required />
+              </div>
+              <div>
+                <label for="PersosDescription">Description du personnage :</label>
+                <textarea id="PersosDescription" name="PersosDescription" required></textarea>
+              </div>
+              <div>
+                <label for="PersosEquipe">Equipe du personnage:</label>
+                <input type="text" id="PersosEquipe" name="PersosEquipe" required />
+              </div>
+              <div>
+                <label for="PersosPersonalite">Personalité du personage:</label>
+                <input type="text" id="PersosPersonalite" name="PersosPersonalite" required />
+              </div>
+              <div>
+                <label for="PersosApparence">Apparence du personnage :</label>
+                <input type="text" id="PersosApparence" name="PersosApparence" required />
+              </div>
+              <div>
+                <label for="PersosCapacités">Capacité du personnage:</label>
+                <textarea type="text" id="PersosCapacités" name="PersosCapacités" required></textarea>
+              </div>
+              <div>
+                <label for="PersosHistoires">Histoire du personnage:</label>
+                <textarea id="PersosHistoires" name="PersosHistoires" required></textarea>
+              </div>
+          </div>
+          <!-- Dynamic Stat Points Allocation -->
+          <div class="center-F">
+            <h2>Stat Points Allocation</h2>
+            <div class="titre-stat">
+              <label for="totalPoints">Total Points (Max 400): </label>
+              <input type="number" id="totalPoints" name="totalPoints" max="600" value="0" readonly />
+            </div>
+          </div>
+          <div>
+            <div class="stat-allocation">
+              <label>Endurance:</label>
+              <input type="number" class="stat-input" id="PersosEnduranceValue" name="PersosEndurance" min="0" max="50"
+                value="0" required readonly />
+              <input type="range" class="stat-slider" id="PersosEndurance" name="PersosEndurance" min="0" max="50" value="0"
+                required>
+      
+      
+      
+              <label>Stamina:</label>
+              <input type="number" class="stat-input" id="PersosStamina" name="PersosStamina" min="0" max="50" value="0"
+                value="0" required readonly />
+              <input type="range" class="stat-slider" id="PersosStamina" name="PersosStamina" min="0" max="50" value="0"
+                value="0" required>
+      
+      
+      
+              <label>Agilité physique :</label>
+              <input type="number" class="stat-input" id="PersosPhysicalAgility" name="PersosPhysicalAgility" min="0" max="50"
+                value="0" required readonly />
+              <input type="range" class="stat-slider" id="PersosPhysicalAgility" name="PersosPhysicalAgility" min="0" max="50"
+                value="0" required>
+            </div>
+      
+            <div class="stat-allocation">
+              <label>Compétences en construction d'abris:</label>
+              <input type="number" class="stat-input" id="PersosShelterBuilding" name="PersosShelterBuilding" min="0" max="50"
+                value="0" readonly required />
+              <input type="range" class="stat-slider" id="PersosShelterBuilding" name="PersosShelterBuilding" min="0" max="50"
+                value="0" required>
+      
+      
+      
+              <label>Compétences en allumage de feu:</label>
+              <input type="number" class="stat-input" id="PersosFireMaking" name="PersosFireMaking" min="0" max="50" readonly
+                value="0" required />
+              <input type="range" class="stat-slider" id="PersosFireMaking" name="PersosFireMaking" min="0" max="50" value="0"
+                required>
+      
+      
+              <label>Réflexion stratégique du personnage:</label>
+              <input type="number" class="stat-input" id="PersosStrategicThinking" name="PersosStrategicThinking" min="0"
+                max="50" value="0" required readonly />
+              <input type="range" class="stat-slider" id="PersosStrategicThinking" name="PersosStrategicThinking" min="0"
+                max="50" value="0" required>
+            </div>
+      
+            <div class="stat-allocation">
+              <label>Compétences de manipulation:</label>
+              <input type="number" class="stat-input" id="PersosManipulation" name="PersosManipulation" min="0" max="50"
+                value="0" readonly required />
+              <input type="range" class="stat-slider" id="PersosManipulation" name="PersosManipulation" min="0" max="50"
+                value="0" required>
+      
+              <label>Endurance mentale du personnage:</label>
+              <input type="number" class="stat-input" id="PersosMentalEndurance" name="PersosMentalEndurance" min="0" max="50"
+                value="0" readonly required />
+              <input type="range" class="stat-slider" id="PersosMentalEndurance" name="PersosMentalEndurance" min="0" max="50"
+                value="0" required>
+      
+              <label>Esprit d'équipe du personnage:</label>
+              <input type="number" class="stat-input" id="PersosTeamPlayer" name="PersosTeamPlayer" min="0" max="50" value="0"
+                readonly required />
+              <input type="range" class="stat-slider" id="PersosTeamPlayer" name="PersosTeamPlayer" min="0" max="50" value="0"
+                required>
+            </div>
+      
+            <div class="stat-allocation">
+              <label>Compétences en leadership:</label>
+              <input type="number" class="stat-input" id="PersosLeadershipSkills" name="PersosLeadershipSkills" min="0"
+                max="50" value="0" readonly required />
+              <input type="range" class="stat-slider" id="PersosLeadershipSkills" name="PersosLeadershipSkills" min="0"
+                max="50" value="0" required>
+      
+              <label>Performance individuelle dans les défis:</label>
+              <input type="number" class="stat-input" id="PersosIndividualChallengePerformance"
+                name="PersosIndividualChallengePerformance" min="0" max="50" value="0" readonly required />
+              <input type="range" class="stat-slider" id="PersosIndividualChallengePerformance"
+                name="PersosIndividualChallengePerformance" min="0" max="50" value="0" required>
+      
+              <label>Contribution aux défis d'équipe:</label>
+              <input type="number" class="stat-input" id="PersosTeamChallengeContribution"
+                name="PersosTeamChallengeContribution" min="0" max="50" value="0" readonly required />
+              <input type="range" class="stat-slider" id="PersosTeamChallengeContribution"
+                name="PersosTeamChallengeContribution" min="0" max="50" value="0" required>
+      
+              <label>Adaptabilité du personnage:</label>
+              <input type="number" class="stat-input" id="PersosAdaptability" name="PersosAdaptability" min="0" max="50"
+                value="0" readonly required />
+              <input type="range" class="stat-slider" id="PersosAdaptability" name="PersosAdaptability" min="0" max="50"
+                value="0" required>
+            </div>
+          </div>
+          <input type="submit" value="Register" />
+          </form>
+          </section>
+          <footer></footer>
+        </div>
+      </body>
 </body>
 </html>
 {{end}}
