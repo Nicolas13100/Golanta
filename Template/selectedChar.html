@@ -1,11 +1,15 @@
 {{define "selectedChar"}}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/selectionStyle.css">
+    <script src="/static/selectionScrypt.js"></script>
     <title>{{.PersosFullName}}</title>
 </head>
+
 <body>
     <h1>{{.PersosFullName}}</h1>
     <img src="{{.PersosImage}}" alt="{{.PersosFullName}} Image">
@@ -14,34 +18,116 @@
     <p>Team: {{.PersosEquipe}}</p>
     <p>Personality: {{.PersosPersonalite}}</p>
 
-    <h2>Stats</h2>
     <ul>
-        <li>Endurance: {{.PersosEndurance}}/50</li>
-        <li>Stamina: {{.PersosStamina}}/50</li>
-        <li>Physical Agility: {{.PersosPhysicalAgility}}/50</li>
+        <li>Endurance: <span id="enduranceValue">{{.PersosEndurance}}</span>/50</li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="enduranceProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+        <li>Stamina: <span id="staminaValue">{{.PersosStamina}}</span>/50</li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="staminaProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+        <li>Physical Agility: <span id="agilityValue">{{.PersosPhysicalAgility}}</span>/50</li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="agilityProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
     </ul>
 
     <h2>Craft</h2>
     <ul>
-        <li>Shelter Building: {{.PersosShelterBuilding}}/50</li>
-        <li>PersosFireMaking: {{.PersosFireMaking}}/50</li>
+        <li>Shelter Building: <span id="shelterBuildingValue">{{.PersosShelterBuilding}}/50</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="shelterBuildingProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+        <li>PersosFireMaking: <span id="fireMakingValue">{{.PersosFireMaking}}/50</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="fireMakingProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
     </ul>
 
     <h2>Mental</h2>
     <ul>
-        <li>StrategicThinking: {{.PersosStrategicThinking}}/50</li>
-        <li>Manipulation: {{.PersosManipulation}}/50</li>
-        <li>MentalEndurance: {{.PersosMentalEndurance}}/50</li>
-        <li>TeamPlayer: {{.PersosTeamPlayer}}/50</li>
-        <li>LeadershipSkills: {{.PersosLeadershipSkills}}/50</li>
+        <li>Strategic Thinking: <span id="strategicThinkingValue">{{.PersosStrategicThinking}}/50</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="strategicThinkingProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+
+        <li>Manipulation: <span id="manipulationValue">{{.PersosManipulation}}/50</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="manipulationProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+
+        <li>Mental Endurance: <span id="mentalEnduranceValue">{{.PersosMentalEndurance}}/50</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="mentalEnduranceProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+
+        <li>Team Player: <span id="teamPlayerValue">{{.PersosTeamPlayer}}/50</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="teamPlayerProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+
+        <li>Leadership Skills: <span id="leadershipSkillsValue">{{.PersosLeadershipSkills}}/50</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="leadershipSkillsProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
     </ul>
 
     <h2>Challenges</h2>
     <ul>
-        <li>Individual Challenge Performance: {{.PersosIndividualChallengePerformance}}</li>
-        <li>Team Challenge Contribution: {{.PersosTeamChallengeContribution}}</li>
-        <li>Adaptability: {{.PersosAdaptability}}/50</li>
+        <li>Individual Challenge Performance: <span id="IndividualChallengePerformanceValue">{{.PersosIndividualChallengePerformance}}</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="IndividualChallengePerformanceProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+        <li>Team Challenge Contribution: <span id="TeamChallengeContributionValue">{{.PersosTeamChallengeContribution}}</span></li>
+        <li>
+            <div class="progress-bar-wrapper">
+                <div id="TeamChallengeContributionProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
+           <li>Adaptability: <span id="adaptabilityValue">{{.PersosAdaptability}}/50</span></li> 
+           <li>
+            <div class="progress-bar-wrapper">
+                <div id="adaptabilityProgress" class="progress-bar"></div>
+                <div class="under-bar"></div>
+            </div>
+        </li>
     </ul>
 </body>
+
 </html>
 {{end}}

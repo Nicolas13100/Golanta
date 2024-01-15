@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+img {
+    max-width: 20%;
+    height: auto;
+    display: block;
+    margin: 20px 0; /* Adjust margin as needed */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Add styles for the progress bar wrapper and the underlying bar */
+.progress-bar-wrapper {
+    position: relative;
+    height: 20px; /* Set the height of the progress bar */
+    width: 50%; /* Set the width to fill the container */
+    overflow: hidden; /* Hide overflowing content */
+
+    /* Optional: Add a border or background to the entire bar */
+    border: 1px solid #ddd; /* Example border color */
+}
+
+.progress-bar {
+    background-color: #4CAF50;
+    height: 100%; /* Set the height to fill the container */
+    transition: width 0.5s; /* Add transition for a smooth effect */
+}
