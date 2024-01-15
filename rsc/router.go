@@ -9,6 +9,8 @@ import (
 func RUN() {
 	// Set up your other handlers
 	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/CreatChar", CreatHandler)
+	http.HandleFunc("/CharList", ListHandler)
 
 	// Serve static files from the "static" directory
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
@@ -24,4 +26,12 @@ func RUN() {
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "index", nil)
+}
+
+func CreatHandler(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "newChar", nil)
+}
+
+func ListHandler(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "listChar", nil)
 }
