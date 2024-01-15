@@ -4,10 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{.PersosFullName}}</title>
 </head>
 <body>
-    
+    <h1>{{.PersosFullName}}</h1>
+    <img src="{{.PersosImage}}" alt="{{.PersosFullName}} Image">
+
+    <p>Description: {{.PersosDescription}}</p>
+    <p>Team: {{.PersosEquipe}}</p>
+    <p>Personality: {{.PersosPersonalite}}</p>
+
+    <h2>Stats</h2>
+    <ul>
+        <li>Endurance: {{.PersosEndurance}}/50</li>
+        <li>Stamina: {{.PersosStamina}}/50</li>
+        <li>Physical Agility: {{.PersosPhysicalAgility}}/50</li>
+    </ul>
+
+    <h2>Craft</h2>
+    <ul>
+        <li>Shelter Building: {{.PersosShelterBuilding}}/50</li>
+        <li>PersosFireMaking: {{.PersosFireMaking}}/50</li>
+    </ul>
+
+    <h2>Mental</h2>
+    <ul>
+        <li>StrategicThinking: {{.PersosStrategicThinking}}/50</li>
+        <li>Manipulation: {{.PersosManipulation}}/50</li>
+        <li>MentalEndurance: {{.PersosMentalEndurance}}/50</li>
+        <li>TeamPlayer: {{.PersosTeamPlayer}}/50</li>
+        <li>LeadershipSkills: {{.PersosLeadershipSkills}}/50</li>
+    </ul>
+
+    <h2>Challenges</h2>
+    <ul>
+        <li>Individual Challenge Performance: {{.PersosIndividualChallengePerformance}}</li>
+        <li>Team Challenge Contribution: {{.PersosTeamChallengeContribution}}</li>
+        <li>Adaptability: {{.PersosAdaptability}}/50</li>
+    </ul>
 </body>
 </html>
 {{end}}

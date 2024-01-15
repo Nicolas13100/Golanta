@@ -11,13 +11,12 @@
 
 <body>
   {{range .}}
-  <div>
-    <a href="/CharDisplay?fullname={{.PersosFullName}}"></a>
-    <h2>{{.PersosName}}</h2>
-    <img src="{{.PersosImage}}" alt="{{.PersosName}} Image" />
-    <p>{{.PersosDescription}}</p>
-    </a>
-  </div>
+
+  <a href="/CharDisplay?fullname={{.PersosFullName}}">
+  <h2>{{.PersosName}}</h2>
+  <img src="{{.PersosImage}}" alt="{{.PersosName}} Image" />
+  <p>{{.PersosDescription}}</p></a>
+
   {{end}}
 </body>
 
