@@ -11,38 +11,86 @@
 </head>
 
 <body>
+
+  <h1>Cree un personnage <br><br></h1>
+  <form action="/newChar/gestion" method="post" enctype="multipart/form-data">
+    <label for="PersosName">Nom du personnage :</label>
+    <input type="text" id="PersosName" name="PersosName" placeholder="Luffy" required /><br /><br />
+
+    <label for="PersosImage">Image du personnage (must be under 10MB):</label>
+    <input type="file" id="PersosImage" name="PersosImage" required /><br /><br />
+
+    <label for="PersosFullName">Nom complet, si aucun metre le nom :</label>
+    <input type="text" id="PersosFullName" name="PersosFullName" placeholder="Monky D. Luffy" required /><br /><br />
+
+    <label for="PersosDescription">Description du personnage :</label>
+    <textarea id="PersosDescription" name="PersosDescription" required></textarea><br /><br />
+
+    <label for="PersosRole">Equipe du personnage:</label>
+    <input type="text" id="PersosRole" name="PersosRole" required /><br /><br />
+
+    <label for="PersosPersonalite">Personalité du personage:</label>
+    <input type="text" id="PersosPersonalite" name="PersosPersonalite" required /><br /><br />
+
+    <label for="PersosApparence">Apparence du personnage :</label>
+    <input type="text" id="PersosApparence" name="PersosApparence" required /><br /><br />
+
+    <label for="PersosCapacités">Capacité du personnage:</label>
+    <textarea type="text" id="PersosCapacités" name="PersosCapacités" required></textarea><br /><br />
+
+    <label for="PersosHistoires">Histoire du personnage:</label>
+    <textarea id="PersosHistoires" name="PersosHistoires" required></textarea><br /><br />
+
+    <label for="PersosEndurance">Endurance du personnage:</label>
+    <input type="text" id="PersosEndurance" name="PersosEndurance" required /><br /><br />
   
-    <h1>Cree un personnage <br><br></h1>
-    <form action="/newChar/gestion" method="post" enctype="multipart/form-data">
-      <label for="PersosName">Nom du personnage :</label>
-      <input type="text" id="PersosName" name="PersosName" placeholder="Luffy" required /><br /><br />
+    <label for="PersosStamina">Stamina du personnage:</label>
+    <input type="text" id="PersosStamina" name="PersosStamina" required /><br /><br />
+  
+    <label for="PersosPhysicalAgility">Agilité physique du personnage:</label>
+    <input type="text" id="PersosPhysicalAgility" name="PersosPhysicalAgility" required /><br /><br />
+  
+    <label for="PersosResourcefulness">Ressourcefulness du personnage:</label>
+    <input type="text" id="PersosResourcefulness" name="PersosResourcefulness" required /><br /><br />
+  
+    <label for="PersosShelterBuilding">Compétences en construction d'abris:</label>
+    <input type="text" id="PersosShelterBuilding" name="PersosShelterBuilding" required /><br /><br />
+  
+    <label for="PersosFireMaking">Compétences en allumage de feu:</label>
+    <input type="text" id="PersosFireMaking" name="PersosFireMaking" required /><br /><br />
+  
+    <label for="PersosSocialSkills">Compétences sociales du personnage:</label>
+    <input type="text" id="PersosSocialSkills" name="PersosSocialSkills" required /><br /><br />
+  
+    <label for="PersosStrategicThinking">Réflexion stratégique du personnage:</label>
+    <input type="text" id="PersosStrategicThinking" name="PersosStrategicThinking" required /><br /><br />
+  
+    <label for="PersosManipulation">Compétences de manipulation:</label>
+    <input type="text" id="PersosManipulation" name="PersosManipulation" required /><br /><br />
+  
+    <label for="PersosResilience">Résilience du personnage:</label>
+    <input type="text" id="PersosResilience" name="PersosResilience" required /><br /><br />
+  
+    <label for="PersosMentalEndurance">Endurance mentale du personnage:</label>
+    <input type="text" id="PersosMentalEndurance" name="PersosMentalEndurance" required /><br /><br />
+  
+    <label for="PersosTeamPlayer">Esprit d'équipe du personnage:</label>
+    <input type="text" id="PersosTeamPlayer" name="PersosTeamPlayer" required /><br /><br />
+  
+    <label for="PersosLeadershipSkills">Compétences en leadership:</label>
+    <input type="text" id="PersosLeadershipSkills" name="PersosLeadershipSkills" required /><br /><br />
+  
+    <label for="PersosIndividualChallengePerformance">Performance individuelle dans les défis:</label>
+    <input type="text" id="PersosIndividualChallengePerformance" name="PersosIndividualChallengePerformance" required /><br /><br />
+  
+    <label for="PersosTeamChallengeContribution">Contribution aux défis d'équipe:</label>
+    <input type="text" id="PersosTeamChallengeContribution" name="PersosTeamChallengeContribution" required /><br /><br />
+  
+    <label for="PersosAdaptability">Adaptabilité du personnage:</label>
+    <input type="text" id="PersosAdaptability" name="PersosAdaptability" required /><br /><br />
 
-      <label for="PersosImage">Image du personnage (must be under 10MB):</label>
-      <input type="file" id="PersosImage" name="PersosImage" required /><br /><br />
-
-      <label for="PersosFullName">Nom complet, si aucun metre le nom :</label>
-      <input type="text" id="PersosFullName" name="PersosFullName" placeholder="Monky D. Luffy" required /><br /><br />
-
-      <label for="PersosDescription">Description du personnage :</label>
-      <textarea id="PersosDescription" name="PersosDescription" required></textarea><br /><br />
-
-      <label for="PersosRole">Equipe du personnage:</label>
-      <input type="text" id="PersosRole" name="PersosRole" required /><br /><br />
-
-      <label for="PersosPersonalite">Personalité du personage:</label>
-      <input type="text" id="PersosPersonalite" name="PersosPersonalite" required /><br /><br />
-
-      <label for="PersosApparence">Apparence du personnage :</label>
-      <input type="text" id="PersosApparence" name="PersosApparence" required /><br /><br />
-
-      <label for="PersosCapacités">Capacité du personnage:</label>
-      <textarea type="text" id="PersosCapacités" name="PersosCapacités" required></textarea><br /><br />
-
-      <label for="PersosHistoires">Histoire du personnage:</label>
-      <textarea id="PersosHistoires" name="PersosHistoires" required></textarea><br /><br />
-
-      <input type="submit" value="Register" />
-    </form>
+    <input type="submit" value="Register" />
+  </form>
   </section>
   <footer></footer>
   </div>
