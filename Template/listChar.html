@@ -9,7 +9,14 @@
   </head>
 
   <body>
-
+    {{range .}}
+    <div>
+      <h2>{{.PersosName}}</h2>
+      <img src="{{.PersosImage}}" alt="{{.PersosName}} Image" />
+      <p>{{.PersosDescription}}</p>
+      <!-- Add more fields as needed -->
+    </div>
+  {{end}}
   </body>
 </html>
 {{end}}

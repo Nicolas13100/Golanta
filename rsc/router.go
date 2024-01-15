@@ -1,9 +1,11 @@
 package routeur
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 )
 
@@ -35,6 +37,11 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func CreatHandler(w http.ResponseWriter, r *http.Request) {
+
+	renderTemplate(w, "newChar", nil)
+}
+
+func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
 	r.ParseMultipartForm(10 << 20)
 	// Parse form values
 	err := r.ParseForm()
@@ -56,60 +63,60 @@ func CreatHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	PhysicalAgility, err := strconv.Atoi(r.FormValue("PersosPhysicalAgility"))
 	if err != nil {
-		http.Error(w, "Error converting PersosEndurance to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosPhysicalAgility to int", http.StatusBadRequest)
 		return
 	}
 	ShelterBuilding, err := strconv.Atoi(r.FormValue("PersosShelterBuilding"))
 	if err != nil {
-		http.Error(w, "Error converting PersosStamina to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosShelterBuilding to int", http.StatusBadRequest)
 		return
 	}
 	FireMaking, err := strconv.Atoi(r.FormValue("PersosFireMaking"))
 	if err != nil {
-		http.Error(w, "Error converting PersosEndurance to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosFireMaking to int", http.StatusBadRequest)
 		return
 	}
 
-	StrategicThinkin, err := strconv.Atoi(r.FormValue("PersosStrategicThinkin"))
+	StrategicThinkin, err := strconv.Atoi(r.FormValue("PersosStrategicThinking"))
 	if err != nil {
-		http.Error(w, "Error converting PersosStamina to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosStrategicThinking to int", http.StatusBadRequest)
 		return
 	}
 	Manipulation, err := strconv.Atoi(r.FormValue("PersosManipulation"))
 	if err != nil {
-		http.Error(w, "Error converting PersosEndurance to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosManipulation to int", http.StatusBadRequest)
 		return
 	}
 
 	MentalEndurance, err := strconv.Atoi(r.FormValue("PersosMentalEndurance"))
 	if err != nil {
-		http.Error(w, "Error converting PersosStamina to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosMentalEndurance to int", http.StatusBadRequest)
 		return
 	}
 	TeamPlayer, err := strconv.Atoi(r.FormValue("PersosTeamPlayer"))
 	if err != nil {
-		http.Error(w, "Error converting PersosEndurance to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosTeamPlayer to int", http.StatusBadRequest)
 		return
 	}
 
 	LeadershipSkills, err := strconv.Atoi(r.FormValue("PersosLeadershipSkills"))
 	if err != nil {
-		http.Error(w, "Error converting PersosStamina to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosLeadershipSkills to int", http.StatusBadRequest)
 		return
 	}
 	IndividualChallengePerformance, err := strconv.Atoi(r.FormValue("PersosIndividualChallengePerformance"))
 	if err != nil {
-		http.Error(w, "Error converting PersosStamina to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosIndividualChallengePerformance to int", http.StatusBadRequest)
 		return
 	}
 	TeamChallengeContribution, err := strconv.Atoi(r.FormValue("PersosTeamChallengeContribution"))
 	if err != nil {
-		http.Error(w, "Error converting PersosStamina to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosTeamChallengeContribution to int", http.StatusBadRequest)
 		return
 	}
 	Adaptability, err := strconv.Atoi(r.FormValue("PersosAdaptability"))
 	if err != nil {
-		http.Error(w, "Error converting PersosStamina to int", http.StatusBadRequest)
+		http.Error(w, "Error converting PersosAdaptability to int", http.StatusBadRequest)
 		return
 	}
 	newChar := Character{
@@ -144,11 +151,8 @@ func CreatHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Error:", err)
 	}
-	renderTemplate(w, "newChar", nil)
-}
 
-func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
-
+	http.Redirect(w, r, "/CharList", http.StatusSeeOther)
 }
 
 func ModifyHandler(w http.ResponseWriter, r *http.Request) {
@@ -166,5 +170,19 @@ func DeletGestionHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 func ListHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "listChar", nil)
+	// Open the JSON file
+	file, err := os.Open("data.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	// Decode the JSON data
+	var characters []Character
+	err = json.NewDecoder(file).Decode(&characters)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	renderTemplate(w, "listChar", characters)
 }
