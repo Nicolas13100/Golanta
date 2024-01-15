@@ -3,9 +3,11 @@ package routeur
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strconv"
 )
 
@@ -119,9 +121,39 @@ func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error converting PersosAdaptability to int", http.StatusBadRequest)
 		return
 	}
+
+	imageFile, imageHeader, err := r.FormFile("PersosImage")
+	if err != nil {
+		http.Error(w, "Error retrieving PersosImage", http.StatusBadRequest)
+		return
+	}
+	defer imageFile.Close()
+
+	// Get the file extension
+	ext := filepath.Ext(imageHeader.Filename)
+
+	// Create the path for the image file in the /assets/IMG/ directory
+	imageName := fmt.Sprintf("%s%s", r.FormValue("PersosFullName"), ext)
+	imagePath := filepath.Join("assets", "IMG", imageName)
+	imageSavePath := "/static/IMG/" + imageName
+	// Create a new file at the specified path
+	outputFile, err := os.Create(imagePath)
+	if err != nil {
+		http.Error(w, "Error creating image file", http.StatusInternalServerError)
+		return
+	}
+	defer outputFile.Close()
+
+	// Copy the contents of the uploaded file to the new file
+	_, err = io.Copy(outputFile, imageFile)
+	if err != nil {
+		http.Error(w, "Error copying image file", http.StatusInternalServerError)
+		return
+	}
+
 	newChar := Character{
 		PersosName:                           r.FormValue("PersosName"),
-		PersosImage:                          r.FormValue("PersosImage"),
+		PersosImage:                          imageSavePath,
 		PersosFullName:                       r.FormValue("PersosFullName"),
 		PersosDescription:                    r.FormValue("PersosDescription"),
 		PersosEquipe:                         r.FormValue("PersosEquipe"),
@@ -147,9 +179,11 @@ func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
 	// Provide the path to your data.json file
 	filename := "data.json"
 
-	err = AddCharacterToFile(newChar, filename)
+	message, err := AddCharacterToFile(newChar, filename)
 	if err != nil {
 		fmt.Println("Error:", err)
+		renderTemplate(w, "newChar", struct{ ErrorMessage string }{ErrorMessage: message})
+		return
 	}
 
 	http.Redirect(w, r, "/CharList", http.StatusSeeOther)

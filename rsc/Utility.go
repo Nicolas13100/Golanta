@@ -2,6 +2,7 @@ package routeur
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"html/template"
 	"net/http"
@@ -24,18 +25,30 @@ func renderTemplate(w http.ResponseWriter, tmplName string, data interface{}) {
 	}
 }
 
-func AddCharacterToFile(newCharacter Character, filename string) error {
+func AddCharacterToFile(newCharacter Character, filename string) (string, error) {
 	// Read existing data
 	data, err := os.ReadFile(filename)
 	if err != nil {
-		return err
+		return "", err
 	}
 
 	// Unmarshal JSON data into a slice of Character
 	var characters []Character
 	err = json.Unmarshal(data, &characters)
 	if err != nil {
-		return err
+		return "", err
+	}
+
+	// Check if there are already 5 characters
+	if len(characters) >= 5 {
+		return "Maximum number of characters reached", errors.New("maximum number of characters reached")
+	}
+
+	// Check if PersosFullName is already given
+	for _, existingCharacter := range characters {
+		if existingCharacter.PersosFullName == newCharacter.PersosFullName {
+			return "PersosFullName already exists", errors.New("PersosFullName already exists")
+		}
 	}
 
 	// Add the new character
@@ -44,16 +57,16 @@ func AddCharacterToFile(newCharacter Character, filename string) error {
 	// Marshal the updated data
 	updatedData, err := json.MarshalIndent(characters, "", "  ")
 	if err != nil {
-		return err
+		return "", err
 	}
 
 	// Write the updated data back to the file
 	err = os.WriteFile(filename, updatedData, 0644)
 	if err != nil {
-		return err
+		return "", err
 	}
 
 	fmt.Println("Character added successfully!")
 
-	return nil
+	return "Character added successfully!", nil
 }
