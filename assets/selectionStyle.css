@@ -1,9 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-image: url('/static/IMG/ok.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #333;
 }
 
@@ -11,7 +16,8 @@ img {
     max-width: 20%;
     height: auto;
     display: block;
-    margin: 20px 0; /* Adjust margin as needed */
+    margin: 20px 0;
+    /* Adjust margin as needed */
 }
 
 ul {
@@ -26,16 +32,77 @@ li {
 /* Add styles for the progress bar wrapper and the underlying bar */
 .progress-bar-wrapper {
     position: relative;
-    height: 20px; /* Set the height of the progress bar */
-    width: 50%; /* Set the width to fill the container */
-    overflow: hidden; /* Hide overflowing content */
+    height: 20px;
+    /* Set the height of the progress bar */
+    width: 50%;
+    /* Set the width to fill the container */
+    overflow: hidden;
+    /* Hide overflowing content */
 
     /* Optional: Add a border or background to the entire bar */
-    border: 1px solid #ddd; /* Example border color */
+    border: 1px solid #ddd;
+    /* Example border color */
 }
 
 .progress-bar {
     background-color: #4CAF50;
-    height: 100%; /* Set the height to fill the container */
-    transition: width 0.5s; /* Add transition for a smooth effect */
+    height: 100%;
+    /* Set the height to fill the container */
+    transition: width 0.5s;
+    /* Add transition for a smooth effect */
+}
+
+.delete {
+    height: 5em;
+    width: 10em;
+    border: none;
+    border-radius: 10em;
+    background: #016DD9;
+    font-size: 17px;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.delete:hover {
+    animation: shake3856 0.3s linear infinite both;
+}
+
+@keyframes shake3856 {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+
+    20% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+}
+
+
+.button-update{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
