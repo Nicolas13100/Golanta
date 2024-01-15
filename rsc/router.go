@@ -121,7 +121,12 @@ func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error converting PersosAdaptability to int", http.StatusBadRequest)
 		return
 	}
-
+	message, err := validateTotalPoints(endurance, stamina, PhysicalAgility, ShelterBuilding, FireMaking, StrategicThinkin, Manipulation, MentalEndurance, TeamPlayer, LeadershipSkills, IndividualChallengePerformance, TeamChallengeContribution, Adaptability)
+	if err != nil {
+		fmt.Println("Error:", err)
+		renderTemplate(w, "newChar", struct{ ErrorMessage string }{ErrorMessage: message})
+		return
+	}
 	imageFile, imageHeader, err := r.FormFile("PersosImage")
 	if err != nil {
 		http.Error(w, "Error retrieving PersosImage", http.StatusBadRequest)
@@ -179,7 +184,7 @@ func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
 	// Provide the path to your data.json file
 	filename := "data.json"
 
-	message, err := AddCharacterToFile(newChar, filename)
+	message, err = AddCharacterToFile(newChar, filename)
 	if err != nil {
 		fmt.Println("Error:", err)
 		renderTemplate(w, "newChar", struct{ ErrorMessage string }{ErrorMessage: message})

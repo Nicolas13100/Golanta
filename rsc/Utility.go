@@ -70,3 +70,13 @@ func AddCharacterToFile(newCharacter Character, filename string) (string, error)
 
 	return "Character added successfully!", nil
 }
+
+func validateTotalPoints(endurance, stamina, physicalAgility, shelterBuilding, fireMaking, strategicThinking, manipulation, mentalEndurance, teamPlayer, leadershipSkills, individualChallengePerformance, teamChallengeContribution, adaptability int) (string, error) {
+	totalPoints := endurance + stamina + physicalAgility + shelterBuilding + fireMaking + strategicThinking + manipulation + mentalEndurance + teamPlayer + leadershipSkills + individualChallengePerformance + teamChallengeContribution + adaptability
+
+	if totalPoints > 400 {
+		return "Total points for integer stats should not exceed 400", errors.New("total points for integer stats should not exceed 400")
+	}
+
+	return "", nil
+}
