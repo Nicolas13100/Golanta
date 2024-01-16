@@ -1,0 +1,76 @@
+body{
+    background-image: url("/static/IMG/border.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -2;
+}
+.all-content {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.char-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.char-box::before,
+.char-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-size: cover;
+    z-index: -1;
+}
+
+.char-box::before {
+    left: 0;
+    background-image: url('/static/IMG/fire-left.gif');
+}
+
+.char-box::after {
+    right: 0;
+    background-image: url('/static/IMG/fire-right.gif');
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 100%;
+}
+
+.char-box img {
+    max-width: 15%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

@@ -24,9 +24,9 @@
     "PersosAdaptability": 45
   },
   {
-    "PersosName": "Elena",
+    "PersosName": "Kheir",
     "PersosImage": "/static/IMG/elena_image.jpg",
-    "PersosFullName": "Elena Eddine",
+    "PersosFullName": "Kheir Eddine",
     "PersosDescription": "A charismatic diplomat skilled in negotiation.",
     "PersosEquipe": "Red",
     "PersosPersonalite": "Charming and diplomatic",
@@ -46,5 +46,29 @@
     "PersosIndividualChallengePerformance": 28,
     "PersosTeamChallengeContribution": 43,
     "PersosAdaptability": 35
+  },
+  {
+    "PersosName": "Liam",
+    "PersosImage": "/static/IMG/liam_image.png",
+    "PersosFullName": "Liam Evergreen",
+    "PersosDescription": "An agile and stealthy rogue with a knack for infiltration.",
+    "PersosEquipe": "Green",
+    "PersosPersonalite": "Mysterious and stealthy",
+    "PersosApparence": "Average height with a shadowy presence",
+    "PersosCapacités": "Master of stealth and infiltration",
+    "PersosHistoires": "Liam has a history of successfully infiltrating high-security areas.",
+    "PersosEndurance": 35,
+    "PersosStamina": 30,
+    "PersosPhysicalAgility": 50,
+    "PersosShelterBuilding": 25,
+    "PersosFireMaking": 20,
+    "PersosStrategicThinking": 38,
+    "PersosManipulation": 40,
+    "PersosMentalEndurance": 32,
+    "PersosTeamPlayer": 35,
+    "PersosLeadershipSkills": 30,
+    "PersosIndividualChallengePerformance": 45,
+    "PersosTeamChallengeContribution": 30,
+    "PersosAdaptability": 40
   }
 ]
