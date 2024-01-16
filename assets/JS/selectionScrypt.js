@@ -86,3 +86,11 @@ document.addEventListener("DOMContentLoaded", function () {
         adaptabilityProgressBar.style.width = (2 * adaptabilityValue) + '%';
     }
 });
+
+function confirmDelete() {
+        var confirmation = confirm("Êtes-vous sûr de vouloir supprimer ce personnage?");
+
+        if (confirmation) {
+            window.location.href = "/DeletChar";
+        }
+    }
