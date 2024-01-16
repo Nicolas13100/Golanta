@@ -1,19 +1,38 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-image: url('/static/IMG/ok.gif');
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: black;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.global {
+    position: relative;
+    padding: 20px;
+    height: 100vh;
+    max-width: 50vw;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-width: 50vw;
+    min-height: 100vh;
+    background-image: url("/static/IMG/ok.gif");
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-size: 100%;
 }
 
 h1,
 h2 {
-    color: #333;
+    color: white;
 }
 
 img {
-    max-width: 20%;
+    max-width: 25%;
     height: auto;
     display: block;
     margin: 20px 0;
@@ -57,7 +76,7 @@ li {
     width: 10em;
     border: none;
     border-radius: 10em;
-    background: #016DD9;
+    background-image: url("/static/IMG/button.png");
     font-size: 17px;
     color: #ffffff;
     font-family: inherit;
@@ -101,8 +120,7 @@ li {
 }
 
 
-.button-update{
+.button-update {
     display: flex;
-    flex-direction: column;
-    align-items: end;
+    align-items: center;
 }

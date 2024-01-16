@@ -19,3 +19,87 @@
   flex-direction: column;
   align-items: center;
 }
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  max-width: 100vw;
+  background-image: url("/static/IMG/crea.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-all {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  background-image: url("/static/IMG/crea.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.center-F {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  color: red;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.perso-global input[type="number"],input[type="text"],textarea, select {
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.stat-big{
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-allocation{
+  justify-content: space-evenly;
+}
+
+.stat-allocation input[type="number"],input[type="text"],textarea, select {
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+.stat-allocation input[type="range"]{
+  margin-bottom: 10px;
+  min-width: 100%;
+}
