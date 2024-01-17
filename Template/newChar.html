@@ -20,7 +20,7 @@
         <div class="center-F">
           <h1>Creer un personnage </h1>
         </div>
-        <div class="zone-texte">
+        <div class="zone-texte1">
           <div>
             <label for="PersosName">Nom du personnage :</label>
             <input type="text" id="PersosName" name="PersosName" placeholder="Nicolas" required />
@@ -29,55 +29,52 @@
               <input type="text" id="PersosFullName" name="PersosFullName" placeholder="Nicolas le G.O.A.T" required />
             </div>
           </div>
+          <div></div>
+          <img id="previewImage" src="#" alt="Preview" style="display: none;" />
+          <div></div>
           <div class="collumn">
             <label for="PersosImage">Image du personnage (moin de 10MB):</label>
             <input type="file" id="PersosImage" name="PersosImage" required />
-            <img id="previewImage" src="#" alt="Preview" style="max-width: 10%; display: none;" />
-          </div>
-          </div>
-        </div>
-
-        <div>
-          <label for="PersosDescription">Description du personnage :</label>
-          <textarea id="PersosDescription" name="PersosDescription" rows="4" cols="50"
-            required></textarea>
-        </div>
-        <div>
-          <label for="PersosEquipe">Equipe du personnage:</label>
-          <select id="PersosEquipe" name="PersosEquipe" required>
-            <option value="Red">Red</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Unified">Unified</option>
-          </select>
-        </div>
-        <div class="zone-texte">
-          <div class="zone1">
-            <div>
-              <label for="PersosPersonalite">Personalité du personage:</label>
-              <textarea type="text" id="PersosPersonalite" name="PersosPersonalite" rows="4" cols="50"
-                required></textarea>
-            </div>
-
-            <div>
-              <label for="PersosApparence">Apparence du personnage :</label>
-              <textarea type="text" id="PersosApparence" name="PersosApparence" rows="4" cols="50"
-                required></textarea>
-            </div>
-          </div>
-          <div class="zone2">
-            <div>
-              <label for="PersosCapacités">Capacité du personnage:</label>
-              <textarea type="text" id="PersosCapacités" name="PersosCapacités" rows="4" cols="50"
-                required></textarea>
-            </div>
-            <div>
-              <label for="PersosHistoires">Histoire du personnage:</label>
-              <textarea id="PersosHistoires" name="PersosHistoires" rows="4" cols="50"
-                required></textarea>
-            </div>
           </div>
         </div>
     </div>
+
+    <div>
+      <label for="PersosDescription">Description du personnage :</label>
+      <textarea id="PersosDescription" name="PersosDescription" rows="4" cols="50" required></textarea>
+    </div>
+    <div>
+      <label for="PersosEquipe">Equipe du personnage:</label>
+      <select id="PersosEquipe" name="PersosEquipe" required>
+        <option value="Red">Red</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Unified">Unified</option>
+      </select>
+    </div>
+    <div class="zone-texte">
+      <div class="zone1">
+        <div>
+          <label for="PersosPersonalite">Personalité du personage:</label>
+          <textarea type="text" id="PersosPersonalite" name="PersosPersonalite" rows="4" cols="50" required></textarea>
+        </div>
+
+        <div>
+          <label for="PersosApparence">Apparence du personnage :</label>
+          <textarea type="text" id="PersosApparence" name="PersosApparence" rows="4" cols="50" required></textarea>
+        </div>
+      </div>
+      <div class="zone2">
+        <div>
+          <label for="PersosCapacités">Capacité du personnage:</label>
+          <textarea type="text" id="PersosCapacités" name="PersosCapacités" rows="4" cols="50" required></textarea>
+        </div>
+        <div>
+          <label for="PersosHistoires">Histoire du personnage:</label>
+          <textarea id="PersosHistoires" name="PersosHistoires" rows="4" cols="50" required></textarea>
+        </div>
+      </div>
+    </div>
+
     <!-- Dynamic Stat Points Allocation -->
     <div class="center-F">
       <h2>Stat Points Allocation</h2>
@@ -261,7 +258,8 @@
     <input type="submit" value="Register" />
     </form>
     </section>
-    <footer></footer>
+  </div>
+  <footer></footer>
   </div>
 </body>
 

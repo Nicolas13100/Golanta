@@ -1,0 +1,28 @@
+Physical Strength:
+Endurance: Measured by a contestant's ability to endure long physical challenges.
+Stamina: Reflects how well a player can maintain physical effort over an extended period.
+Physical Agility: Assesses a player's flexibility, coordination, and overall agility.
+
+Survival Skills:
+Resourcefulness: Evaluates a contestant's ability to find and use resources in the wilderness.
+Shelter Building: Reflects proficiency in constructing and maintaining a shelter.
+Fire Making: Measures how well a player can start and maintain a fire.
+
+Social and Strategic Gameplay:
+Social Skills: Gauges a contestant's ability to build alliances and maintain positive relationships.
+Strategic Thinking: Assesses the player's ability to devise and execute game-winning strategies.
+Manipulation: Measures how well a player can manipulate and influence others in the game.
+
+Mental Toughness:
+Mental Endurance: Measures how well a contestant can handle stress, pressure, and mental fatigue.
+
+Teamwork and Leadership:
+Team Player: Evaluates a player's ability to work well within a group and contribute to team success.
+Leadership Skills: Reflects how well a contestant can lead and make decisions that benefit the group.
+
+Challenge Performance:
+Individual Challenge Performance: Assesses a player's success in individual challenges.
+Team Challenge Contribution: Measures a contestant's contribution to the success of their team in group challenges.
+
+Adaptability:
+Adaptability: Evaluates how well a player can adapt to unexpected twists and changes in the game.

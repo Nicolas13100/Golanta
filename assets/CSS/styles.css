@@ -63,7 +63,8 @@ label {
 }
 
 .perso-global input[type="number"],
-input[type="text"],textarea,
+input[type="text"],
+textarea,
 select {
   background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 15px;
@@ -120,57 +121,65 @@ select {
 div label[for="PersosDescription"] {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px; /* Adjust the value as needed */
+  margin-bottom: 5px;
+  /* Adjust the value as needed */
 }
 
 div label[for="PersosPersonalite"] {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px; /* Adjust the value as needed */
+  margin-bottom: 5px;
+  /* Adjust the value as needed */
 }
 
 div label[for="PersosApparence"] {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px; /* Adjust the value as needed */
+  margin-bottom: 5px;
+  /* Adjust the value as needed */
 }
 
 
 div label[for="PersosCapacités"] {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px; /* Adjust the value as needed */
+  margin-bottom: 5px;
+  /* Adjust the value as needed */
 }
 
 div label[for="PersosHistoires"] {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px; /* Adjust the value as needed */
+  margin-bottom: 5px;
+  /* Adjust the value as needed */
 }
 
 .titre-stat input {
   background-color: rgba(255, 255, 255, 0.5);
 }
-.zone-texte{
+
+.zone-texte {
   display: flex;
   justify-content: space-between;
 }
 
-.zone-texte1{
+.zone-texte1 {
   display: flex;
   justify-content: space-around;
+  max-height: 25vh;
 }
 
-.zone-texte1 > div {
-  width: 100%; /* Each div takes up the full width of the container */
-  margin-bottom: 10px; /* Optional: Add some space between the div elements */
+.zone-texte1>div {
+  width: 100%;
+  margin-bottom: 10px;
+
 }
 
 img {
-  max-width: 30%;
-  height: auto;
+  max-width: 15%;
+  max-height: 5%;
   display: block;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .collumn {

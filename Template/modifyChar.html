@@ -26,9 +26,10 @@
               <input type="text" id="PersosFullName" name="PersosFullName" value="{{.PersosFullName}}" required />
             </div>
           </div>
-          <div>
-            <img src="{{.PersosImage}}" alt="Description de l'image">
-          </div>
+          <div></div>
+          <img id="firstImage" src="{{.PersosImage}}" alt="Description de l'image">
+          <img id="previewImage" src="#" alt="Preview" style="display: none;" />
+          <div></div>
           <div>
             <label for="PersosImage">Image du personnage requise (moin de 10MB):</label>
             <input type="file" id="PersosImage" name="PersosImage" value="{{.PersosImage}}" required />

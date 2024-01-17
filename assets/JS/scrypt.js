@@ -44,8 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.style.overflowY = "auto";
     }
   }
+
+});
+
+document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('PersosImage').addEventListener('change', function (e) {
     const previewImage = document.getElementById('previewImage');
+    const firstImage = document.getElementById('firstImage'); // Replace 'firstImage' with the actual ID of the first image
     const fileInput = e.target;
 
     if (fileInput.files && fileInput.files[0]) {
@@ -53,10 +58,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
       reader.onload = function (e) {
         previewImage.src = e.target.result;
-        previewImage.style.display = 'block';
+        previewImage.style.display = 'flex';
+
+        // Hide the first image
+        if (firstImage) {
+          firstImage.style.display = 'none';
+        }
       };
 
       reader.readAsDataURL(fileInput.files[0]);
+    } else {
+      // If no file is selected, hide the preview image and show the first image
+      previewImage.style.display = 'none';
+      if (firstImage) {
+        firstImage.style.display = 'flex';
+      }
+       // Adjust 'flex' to your desired display property
     }
   });
 });
