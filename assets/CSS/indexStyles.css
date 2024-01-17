@@ -3,13 +3,15 @@
     margin: 0;
 }
 
-
-.content-all {
+.big {
     background-image: url("/static/IMG/statue.gif");
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.content-all {
     display: flex;
     justify-content: space-evenly;
 }
@@ -158,7 +160,7 @@ button:hover .icon-3 {
 
     45%,
     55% {
-        width: 6.2em;
+        width: 100%;
     }
 
     /* adjust width based on content */
@@ -175,8 +177,9 @@ button:hover .icon-3 {
     font-family: "Courier New", Courier, monospace;
     font-size: 1em;
     padding: 1.5em 1em;
-    width: 12em;
+    width: 50%;
     margin: 100px auto;
+    margin-top: 20%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     position: relative;
@@ -204,7 +207,7 @@ button:hover .icon-3 {
 .control {
     display: inline-block;
     width: 0.6em;
-    height: 0.6em;
+    height: 5%;
     margin-left: 0.4em;
     border-radius: 50%;
     background-color: #777;
@@ -234,7 +237,7 @@ button:hover .icon-3 {
     overflow: hidden;
     border-right: 0.2em solid green;
     /* Cursor */
-    animation: typeAndDelete 4s steps(11) infinite,
+    animation: typeAndDelete 10s steps(90) infinite,
         blinkCursor 0.5s step-end infinite alternate;
     margin-top: 1.5em;
 }
