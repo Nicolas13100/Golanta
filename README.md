@@ -5,7 +5,7 @@ Sur un server go /html, crée un site web de creation de personnage sur un theme
 
 ## Description
 
-Après avoir telecharger le code, lancer le serv.go depuis l'invite de commande ( go run .\serv.go)  et aller sur [http:](http://localhost:8080/Home)
+Après avoir telecharger le code, lancer le serv.go depuis l'invite de commande ( go run .\serv.go)  et aller [ici](http://localhost:8080/Home)
 
 ## Getting Started
 
