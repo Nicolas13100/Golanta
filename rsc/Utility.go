@@ -40,9 +40,9 @@ func AddCharacterToFile(newCharacter Character, filename string) (string, error)
 	}
 
 	// Check if there are already 5 characters
-	if len(characters) >= 5 {
-		return "Maximum number of characters reached", errors.New("maximum number of characters reached")
-	}
+	// if len(characters) >= 5 {
+	// 	return "Maximum number of characters reached", errors.New("maximum number of characters reached")
+	// }
 
 	// Check if PersosFullName is already given
 	for _, existingCharacter := range characters {
