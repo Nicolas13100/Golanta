@@ -1,7 +1,7 @@
 [
   {
     "PersosName": "Nicolas",
-    "PersosImage": "/static/IMG/nicolas_image.png",
+    "PersosImage": "/static/IMG/ImgPersos/nicolas_image.png",
     "PersosFullName": "Moyon Nicolas",
     "PersosDescription": "A skilled adventurer with a passion for exploration.",
     "PersosEquipe": "Yellow",
@@ -25,7 +25,7 @@
   },
   {
     "PersosName": "Kheir",
-    "PersosImage": "/static/IMG/elena_image.jpg",
+    "PersosImage": "/static/IMG/ImgPersos/elena_image.jpg",
     "PersosFullName": "Kheir Eddine",
     "PersosDescription": "A charismatic diplomat skilled in negotiation.",
     "PersosEquipe": "Red",
@@ -49,7 +49,7 @@
   },
   {
     "PersosName": "Liam",
-    "PersosImage": "/static/IMG/liam_image.png",
+    "PersosImage": "/static/IMG/ImgPersos/liam_image.png",
     "PersosFullName": "Liam Evergreen",
     "PersosDescription": "An agile and stealthy rogue with a knack for infiltration.",
     "PersosEquipe": "Unified",

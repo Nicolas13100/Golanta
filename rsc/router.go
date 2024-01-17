@@ -178,8 +178,8 @@ func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Create the path for the image file in the /assets/IMG/ directory
 	imageName := fmt.Sprintf("%s%s", r.FormValue("PersosFullName"), ext)
-	imagePath := filepath.Join("assets", "IMG", imageName)
-	imageSavePath := "/static/IMG/" + imageName
+	imagePath := filepath.Join("assets", "IMG", "Imgpersos", imageName)
+	imageSavePath := "/static/IMG/ImgPersos/" + imageName
 	// Create a new file at the specified path
 	outputFile, err := os.Create(imagePath)
 	if err != nil {
@@ -367,8 +367,8 @@ func ModifyGestionHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Create the path for the image file in the /assets/IMG/ directory
 	imageName := fmt.Sprintf("%s%s", r.FormValue("PersosFullName"), ext)
-	imagePath := filepath.Join("assets", "IMG", imageName)
-	imageSavePath := "/static/IMG/" + imageName
+	imagePath := filepath.Join("assets", "IMG", "ImgPersos", imageName)
+	imageSavePath := "/static/IMG/ImgPersos/" + imageName
 	// Create a new file at the specified path
 	outputFile, err := os.Create(imagePath)
 	if err != nil {
