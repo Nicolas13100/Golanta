@@ -80,3 +80,53 @@ func validateTotalPoints(endurance, stamina, physicalAgility, shelterBuilding, f
 
 	return "", nil
 }
+
+func UpdateCharData(filename, fullname string, modifiedChar Character) {
+	// Load data from data.json
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Println("Error reading data.json:", err)
+		return
+	}
+
+	// Unmarshal JSON data into a slice of Character structs
+	var characters []Character
+	err = json.Unmarshal(data, &characters)
+	if err != nil {
+		fmt.Println("Error unmarshalling data:", err)
+		return
+	}
+
+	// Find the character with the specified fullname
+	var foundIndex int = -1
+	for i, char := range characters {
+		if char.PersosFullName == fullname {
+			foundIndex = i
+			break
+		}
+	}
+
+	// Update the character if found
+	if foundIndex != -1 {
+		characters[foundIndex] = modifiedChar
+
+		// Marshal the updated data back to JSON
+		updatedData, err := json.MarshalIndent(characters, "", "  ")
+		if err != nil {
+			fmt.Println("Error marshalling updated data:", err)
+			return
+		}
+
+		// Save the updated data back to data.json
+		err = os.WriteFile("data.json", updatedData, 0644)
+		if err != nil {
+			fmt.Println("Error writing to data.json:", err)
+			return
+		}
+
+		fmt.Println("Data updated successfully.")
+	} else {
+		fmt.Println("Character with fullname not found.")
+	}
+
+}

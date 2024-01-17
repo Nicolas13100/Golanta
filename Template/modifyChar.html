@@ -13,7 +13,7 @@
 <body>
   <div class="content-all">
     <div class="perso-global">
-      <form action="/CreatChar/Gestion" method="post" enctype="multipart/form-data">
+      <form action="/ModifyChar/Gestion?fullname={{.PersosFullName}}" method="post" enctype="multipart/form-data">
         <div class="center-F">
           <h1>Modifier un personnage </h1>
         </div>
@@ -30,7 +30,6 @@
             <img src="{{.PersosImage}}" alt="Description de l'image">
           </div>
           <div>
-
             <label for="PersosImage">Nouvelle Image du personnage si besoin (must be under 10MB):</label>
             <input type="file" id="PersosImage" name="PersosImage" value="{{.PersosImage}}" required />
           </div>
