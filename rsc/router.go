@@ -13,7 +13,8 @@ import (
 
 func RUN() {
 	// Set up your other handlers
-	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/", errorHandler)
+	http.HandleFunc("/Home", indexHandler)
 	http.HandleFunc("/CreatChar", CreatHandler)
 	http.HandleFunc("/CreatChar/Gestion", CreaGestionHandler)
 	http.HandleFunc("/ModifyChar", ModifyHandler)
@@ -25,12 +26,16 @@ func RUN() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("assets"))))
 
 	// Print statement indicating server is running
-	fmt.Println("Server is running on :8080 http://localhost:8080")
+	fmt.Println("Server is running on :8080 http://localhost:8080/Home")
 
 	// Start the server
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func errorHandler(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "404", nil)
 }
 
 func CharDisplayHandler(w http.ResponseWriter, r *http.Request) {
