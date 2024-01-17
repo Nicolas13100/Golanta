@@ -39,4 +39,4 @@ Aucune, c'est un projet de cour.
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* (https://uiverse.io/)https://uiverse.io/
+* https://uiverse.io/
