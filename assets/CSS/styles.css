@@ -1,20 +1,20 @@
-*{
- padding: 0;
- margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 
-.content-all{
+.content-all {
   display: flex;
   flex-direction: column;
 }
 
-.stat-allocation{
+.stat-allocation {
   display: flex;
   flex-direction: row;
 }
 
-.center-F{
+.center-F {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,8 +52,9 @@ body {
   margin-bottom: 20px;
 }
 
-h1, h2 {
-  color: red;
+h1,
+h2 {
+  color: rgba(168, 2, 25, 1);
 }
 
 label {
@@ -61,7 +62,10 @@ label {
   margin-bottom: 5px;
 }
 
-.perso-global input[type="number"],input[type="text"],textarea, select {
+.perso-global input[type="number"],
+input[type="text"],textarea,
+select {
+  background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 15px;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -84,22 +88,92 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.stat-big{
+.stat-big {
   display: flex;
   flex-direction: column;
 }
 
-.stat-allocation{
+.stat-allocation {
   justify-content: space-evenly;
 }
 
-.stat-allocation input[type="number"],input[type="text"],textarea, select {
+.stat-allocation input[type="number"],
+input[type="text"],
+select {
+  background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 5px;
   box-sizing: border-box;
   border: 1px solid #ccc;
 }
 
-.stat-allocation input[type="range"]{
+.textarea {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+.stat-allocation input[type="range"] {
   margin-bottom: 10px;
   min-width: 100%;
+}
+
+
+div label[for="PersosDescription"] {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px; /* Adjust the value as needed */
+}
+
+div label[for="PersosPersonalite"] {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px; /* Adjust the value as needed */
+}
+
+div label[for="PersosApparence"] {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px; /* Adjust the value as needed */
+}
+
+
+div label[for="PersosCapacités"] {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px; /* Adjust the value as needed */
+}
+
+div label[for="PersosHistoires"] {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px; /* Adjust the value as needed */
+}
+
+.titre-stat input {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.zone-texte{
+  display: flex;
+  justify-content: space-between;
+}
+
+.zone-texte1{
+  display: flex;
+  justify-content: space-around;
+}
+
+.zone-texte1 > div {
+  width: 100%; /* Each div takes up the full width of the container */
+  margin-bottom: 10px; /* Optional: Add some space between the div elements */
+}
+
+img {
+  max-width: 30%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.collumn {
+  display: flex;
+  flex-direction: column;
 }

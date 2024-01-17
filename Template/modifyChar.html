@@ -17,21 +17,29 @@
         <div class="center-F">
           <h1>Modifier un personnage </h1>
         </div>
-        <div>
-          <label for="PersosName">Nom du personnage :</label>
-          <input type="text" id="PersosName" name="PersosName" value="{{.PersosName}}" required />
+        <div class="zone-texte1">
+          <div>
+            <label for="PersosName">Nom du personnage :</label>
+            <input type="text" id="PersosName" name="PersosName" value="{{.PersosName}}" required />
+            <div>
+              <label for="PersosFullName">Nom complet :</label>
+              <input type="text" id="PersosFullName" name="PersosFullName" value="{{.PersosFullName}}" required />
+            </div>
+          </div>
+          <div>
+            <img src="{{.PersosImage}}" alt="Description de l'image">
+          </div>
+          <div>
+
+            <label for="PersosImage">Nouvelle Image du personnage si besoin (must be under 10MB):</label>
+            <input type="file" id="PersosImage" name="PersosImage" value="{{.PersosImage}}" required />
+          </div>
         </div>
-        <div>
-          <label for="PersosImage">Image du personnage (must be under 10MB):</label>
-          <input type="file" id="PersosImage" name="PersosImage" value="{{.PersosImage}}" required />
-        </div><br>
-        <div>
-          <label for="PersosFullName">Nom complet, si aucun metre le nom :</label>
-          <input type="text" id="PersosFullName" name="PersosFullName" value="{{.PersosFullName}}" required />
-        </div>
+
         <div>
           <label for="PersosDescription">Description du personnage :</label>
-          <textarea id="PersosDescription" name="PersosDescription" required>{{.PersosDescription}}</textarea>
+          <textarea id="PersosDescription" name="PersosDescription" rows="4" cols="50"
+            required>{{.PersosDescription}}</textarea>
         </div>
         <div>
           <label for="PersosEquipe">Equipe du personnage:</label>
@@ -41,21 +49,32 @@
             <option value="Unified" {{if eq .PersosEquipe "Unified" }}selected{{end}}>Unified</option>
           </select>
         </div>
-        <div>
-          <label for="PersosPersonalite">Personalité du personage:</label>
-          <input type="text" id="PersosPersonalite" name="PersosPersonalite" value="{{.PersosPersonalite}}" required />
-        </div>
-        <div>
-          <label for="PersosApparence">Apparence du personnage :</label>
-          <input type="text" id="PersosApparence" name="PersosApparence" value="{{.PersosApparence}}" required />
-        </div>
-        <div>
-          <label for="PersosCapacités">Capacité du personnage:</label>
-          <textarea type="text" id="PersosCapacités" name="PersosCapacités" required>{{.PersosCapacites}}</textarea>
-        </div>
-        <div>
-          <label for="PersosHistoires">Histoire du personnage:</label>
-          <textarea id="PersosHistoires" name="PersosHistoires" required>{{.PersosHistoires}}</textarea>
+        <div class="zone-texte">
+          <div class="zone1">
+            <div>
+              <label for="PersosPersonalite">Personalité du personage:</label>
+              <textarea type="text" id="PersosPersonalite" name="PersosPersonalite" rows="4" cols="50"
+                required>{{.PersosPersonalite}}</textarea>
+            </div>
+
+            <div>
+              <label for="PersosApparence">Apparence du personnage :</label>
+              <textarea type="text" id="PersosApparence" name="PersosApparence" rows="4" cols="50"
+                required>{{.PersosApparence}}</textarea>
+            </div>
+          </div>
+          <div class="zone2">
+            <div>
+              <label for="PersosCapacités">Capacité du personnage:</label>
+              <textarea type="text" id="PersosCapacités" name="PersosCapacités" rows="4" cols="50"
+                required>{{.PersosCapacites}}</textarea>
+            </div>
+            <div>
+              <label for="PersosHistoires">Histoire du personnage:</label>
+              <textarea id="PersosHistoires" name="PersosHistoires" rows="4" cols="50"
+                required>{{.PersosHistoires}}</textarea>
+            </div>
+          </div>
         </div>
     </div>
     <!-- Dynamic Stat Points Allocation -->
