@@ -18,8 +18,7 @@ func RUN() {
 	http.HandleFunc("/CreatChar/Gestion", CreaGestionHandler)
 	http.HandleFunc("/ModifyChar", ModifyHandler)
 	http.HandleFunc("/ModifyChar/Gestion", ModifyGestionHandler)
-	http.HandleFunc("/DeletChar", DeletHandler)
-	http.HandleFunc("/DeletChar/Gestion", DeletGestionHandler)
+	http.HandleFunc("/DeletChar", DeleteHandler)
 	http.HandleFunc("/CharList", ListHandler)
 	http.HandleFunc("/CharDisplay", CharDisplayHandler)
 	// Serve static files from the "static" directory
@@ -239,15 +238,63 @@ func ModifyHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ModifyGestionHandler(w http.ResponseWriter, r *http.Request) {
-
-}
-func DeletHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "deletChar", nil)
+	http.Redirect(w, r, "/CharList", http.StatusSeeOther)
 }
 
-func DeletGestionHandler(w http.ResponseWriter, r *http.Request) {
+func DeleteHandler(w http.ResponseWriter, r *http.Request) {
+	// Read data from data.json
+	data, err := os.ReadFile("data.json")
+	if err != nil {
+		http.Error(w, "Error reading data.json", http.StatusInternalServerError)
+		return
+	}
 
+	// Unmarshal JSON data into a slice of characters
+	var characters []Character
+	if err := json.Unmarshal(data, &characters); err != nil {
+		http.Error(w, "Error parsing data.json", http.StatusInternalServerError)
+		return
+	}
+
+	// Extract the "fullname" parameter from the URL query
+	fullname := r.URL.Query().Get("fullname")
+
+	// Find the index of the character with the specified fullname in the characters slice
+	var selectedIndex = -1
+	for i, char := range characters {
+		if char.PersosFullName == fullname {
+			selectedIndex = i
+			break
+		}
+	}
+
+	// Check if the character was found
+	if selectedIndex == -1 {
+		// Handle the case where the character is not found (e.g., show an error message)
+		http.Error(w, "Character not found", http.StatusNotFound)
+		return
+	}
+
+	// Remove the selected character from the slice
+	characters = append(characters[:selectedIndex], characters[selectedIndex+1:]...)
+
+	// Marshal the modified characters slice back to JSON
+	updatedData, err := json.Marshal(characters)
+	if err != nil {
+		http.Error(w, "Error marshaling updated data", http.StatusInternalServerError)
+		return
+	}
+
+	// Write the updated JSON back to data.json
+	err = os.WriteFile("data.json", updatedData, 0644)
+	if err != nil {
+		http.Error(w, "Error writing updated data to data.json", http.StatusInternalServerError)
+		return
+	}
+
+	http.Redirect(w, r, "/CharList", http.StatusSeeOther)
 }
+
 func ListHandler(w http.ResponseWriter, r *http.Request) {
 	// Open the JSON file
 	file, err := os.Open("data.json")

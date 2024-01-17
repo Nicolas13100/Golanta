@@ -91,6 +91,7 @@ function confirmDelete() {
         var confirmation = confirm("Êtes-vous sûr de vouloir supprimer ce personnage?");
 
         if (confirmation) {
-            window.location.href = "/DeletChar";
+            var currentURL = window.location.href;
+            window.location.href = "/DeletChar?"+ currentURL.split('?')[1];
         }
     }
