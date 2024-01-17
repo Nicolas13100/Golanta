@@ -234,7 +234,39 @@ func CreaGestionHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ModifyHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "modifyChar", nil)
+	// Read data from data.json
+	data, err := os.ReadFile("data.json")
+	if err != nil {
+		http.Error(w, "Error reading data.json", http.StatusInternalServerError)
+		return
+	}
+
+	// Unmarshal JSON data into a slice of characters
+	var characters []Character
+	if err := json.Unmarshal(data, &characters); err != nil {
+		http.Error(w, "Error parsing data.json", http.StatusInternalServerError)
+		return
+	}
+
+	// Extract the "fullname" parameter from the URL query
+	fullname := r.URL.Query().Get("fullname")
+
+	// Find the character with the specified fullname in the characters data
+	var selectedCharacter Character
+	for _, char := range characters {
+		if char.PersosFullName == fullname {
+			selectedCharacter = char
+			break
+		}
+	}
+
+	// Check if the character was found
+	if selectedCharacter.PersosFullName == "" {
+		// Handle the case where the character is not found (e.g., show an error message)
+		http.Error(w, "Character not found", http.StatusNotFound)
+		return
+	}
+	renderTemplate(w, "modifyChar", selectedCharacter)
 }
 
 func ModifyGestionHandler(w http.ResponseWriter, r *http.Request) {
