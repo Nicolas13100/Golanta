@@ -5,46 +5,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   statSliders.forEach(function (slider, index) {
     slider.addEventListener("input", function () {
-      updateTotalPoints();
       updateStatInputValue(index);
-      limitTotalPoints(); // Add this function call to limit total points
+      updateTotalPoints();
     });
   });
 
   function updateTotalPoints() {
     let totalPoints = 0;
 
+    // Calculate the total points considering each slider
     statSliders.forEach(function (slider) {
       totalPoints += parseInt(slider.value) || 0;
     });
 
+    // Check if total points exceed the limit
+    if (totalPoints > 400) {
+      alert("Total points cannot exceed 400. Please adjust your allocations.");
+
+      // Determine the excess points
+      const excessPoints = totalPoints - 400;
+
+      // Distribute the excess points proportionally among all sliders
+      statSliders.forEach(function (slider, index) {
+        const currentValue = parseInt(slider.value) || 0;
+        const newSliderValue = Math.max(currentValue - (excessPoints / statSliders.length), 0);
+        slider.value = newSliderValue.toFixed(2); // Ensure two decimal places
+      });
+    }
+
+    // Update the total points field
     totalPointsInput.value = totalPoints;
   }
 
   function updateStatInputValue(index) {
     statInputs[index].value = statSliders[index].value;
   }
-
-  function limitTotalPoints() {
-    const maxTotalPoints = 400;
-
-    if (parseInt(totalPointsInput.value) > maxTotalPoints) {
-      // Block all sliders if total points exceed the maximum
-      statSliders.forEach(function (slider) {
-        slider.value = 0; // Set each slider's value to 0
-        updateStatInputValue(Array.from(statSliders).indexOf(slider));
-      });
-
-      updateTotalPoints();
-
-      // Disable scrolling when total points exceed the maximum
-      document.body.style.overflowY = "hidden";
-    } else {
-      // Enable scrolling otherwise
-      document.body.style.overflowY = "auto";
-    }
-  }
-
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -73,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (firstImage) {
         firstImage.style.display = 'flex';
       }
-       // Adjust 'flex' to your desired display property
+      // Adjust 'flex' to your desired display property
     }
   });
 });
